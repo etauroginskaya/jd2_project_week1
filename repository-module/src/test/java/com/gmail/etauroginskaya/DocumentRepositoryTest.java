@@ -10,7 +10,7 @@ public class DocumentRepositoryTest {
 
     @Test
     public void shouldReturnCollectionStringInDocument() {
-        String documentName = "Test.txt";
+        String documentName = "web-module\\src\\main\\resources\\Test.txt";
         List<String> receivedByDocumentLine = DocumentRepositoryImpl.getInstance()
                 .getCollectionLineByDocument(documentName);
         Assert.assertNotNull(receivedByDocumentLine);

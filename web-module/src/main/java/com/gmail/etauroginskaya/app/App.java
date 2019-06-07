@@ -8,7 +8,11 @@ public class App {
     private static final Logger logger = LogManager.getLogger(App.class);
 
     public static void main(String[] args) {
-        String lineMatchingPattern = DocumentServiceImpl.getInstance().getLineMatchingPattern("Test.txt");
+        String lineMatchingPattern = DocumentServiceImpl.getInstance()
+                .getLineMatchingPattern("web-module\\src\\main\\resources\\Test1.txt");
+        logger.debug(lineMatchingPattern);
+        lineMatchingPattern = DocumentServiceImpl.getInstance()
+                .getLineMatchingPattern("web-module\\src\\main\\resources\\Test.txt");
         logger.debug(lineMatchingPattern);
     }
 }

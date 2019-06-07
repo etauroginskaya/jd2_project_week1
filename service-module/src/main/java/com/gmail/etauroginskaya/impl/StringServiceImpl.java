@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 public class StringServiceImpl implements StringService {
     private final int minNumberInString = 0;
     private final int maxNumberInString = 2;
-    private final String delimiters = "-|,|,\\s|:|\\||\\n";
+    private final String delimiters = ",|:|\\||\\n";
     private final String validateNumberRegex = "\\d*";
 
     private static StringServiceImpl mInstance;
@@ -41,14 +41,15 @@ public class StringServiceImpl implements StringService {
 
     private void validateQuantityNumbers(String[] arrayNumbers) {
         if (arrayNumbers.length > maxNumberInString || arrayNumbers.length < minNumberInString) {
-            throw new NotValidStringException();
+            throw new NotValidStringException("Not valid quantity numbers in string. " +
+                    "Quantity of numbers in the string must be between " + minNumberInString + ".." + maxNumberInString);
         }
     }
 
     private void validateStringNumbersByRegex(String[] arrayNumbers) {
         Arrays.stream(arrayNumbers).forEach(number -> {
             if (!number.matches(validateNumberRegex)) {
-                throw new NotValidStringException();
+                throw new NotValidStringException("String not valid regex.");
             }
         });
     }

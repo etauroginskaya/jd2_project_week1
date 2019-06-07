@@ -29,7 +29,6 @@ public class DocumentServiceImpl implements DocumentService {
                 return s;
             }
         }
-        String str = "";
-        return str;
+        return "";
     }
 }
